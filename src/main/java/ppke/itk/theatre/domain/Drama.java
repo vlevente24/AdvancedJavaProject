@@ -21,5 +21,7 @@ public class Drama {
 
     private String details;
 
-    private Integer directorId;
+    private String imagePath;
+
+    private Actor director;
 }

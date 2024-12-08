@@ -10,9 +10,13 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Ticket {
+
+    //id, generatedvalue, column
     private Integer id;
 
-    private Integer userId;
+    //jsonbackreference
+    private User user;
 
-    private Integer performanceId;
+    //manytoone
+    private Performance performance;
 }

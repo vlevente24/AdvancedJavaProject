@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -13,13 +16,14 @@ public class Performance {
 
     private Integer id;
 
-    private Integer dramaId;
+    private Drama drama;
 
-    private String date;
-
-    private String time;
+    private Date date;
 
     private String location;
 
     private Integer price;
+
+    //jsonmanagedreference
+    private List<PlayRole> roles;
 }

@@ -6,7 +6,7 @@ import ppke.itk.theatre.domain.Actor;
 @Repository
 public class ActorRepository {
 
-    public Actor getActor() {
-        return new Actor(1, "Lajos Zsuzsi", "Passio: Maria", "oninternet.hu");
+    public Actor getActor(Integer id) {
+        return new Actor(id, "Lajos Zsuzsi", "Passio: Maria", "oninternet.hu");
     }
 }

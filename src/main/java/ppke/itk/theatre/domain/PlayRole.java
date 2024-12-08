@@ -13,9 +13,10 @@ public class PlayRole {
 
     private Integer id;
 
-    private Integer actorId;
+    private Actor actor;
 
-    private Integer performanceId;
+    //jsonbackreference
+    private Performance performance;
 
     private String roleName;
 

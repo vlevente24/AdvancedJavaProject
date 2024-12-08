@@ -13,6 +13,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -20,9 +22,8 @@ import lombok.Setter;
 //@Entity
 //@Table(name = "users")
 public class User {
-    //@Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
-    //@Column(name = "id", nullable = false)
+
+    //@Column
     private Integer email;
 
     //@Column
@@ -32,5 +33,8 @@ public class User {
     private String password;
 
     //@Column
-    private String permission;
+    private UserType permission;
+
+    //jsonmanagedreference
+    private List<Ticket> tickets;
 }
