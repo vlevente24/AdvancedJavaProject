@@ -1,5 +1,6 @@
 package ppke.itk.theatre.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +15,7 @@ public class Ticket {
     //id, generatedvalue, column
     private Integer id;
 
-    //jsonbackreference
+    @JsonBackReference
     private User user;
 
     //manytoone

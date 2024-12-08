@@ -1,5 +1,6 @@
 package ppke.itk.theatre.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,6 +25,6 @@ public class Performance {
 
     private Integer price;
 
-    //jsonmanagedreference
+    @JsonManagedReference
     private List<PlayRole> roles;
 }

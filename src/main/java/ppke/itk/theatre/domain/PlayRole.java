@@ -1,5 +1,6 @@
 package ppke.itk.theatre.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,7 +16,7 @@ public class PlayRole {
 
     private Actor actor;
 
-    //jsonbackreference
+    @JsonBackReference
     private Performance performance;
 
     private String roleName;

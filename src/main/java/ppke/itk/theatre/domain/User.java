@@ -7,6 +7,7 @@ package ppke.itk.theatre.domain;
 //import jakarta.persistence.Id;
 //import jakarta.persistence.Table;
 //import jakarta.persistence.Transient;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -35,6 +36,6 @@ public class User {
     //@Column
     private UserType permission;
 
-    //jsonmanagedreference
+    @JsonManagedReference
     private List<Ticket> tickets;
 }
