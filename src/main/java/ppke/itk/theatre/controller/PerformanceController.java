@@ -1,11 +1,39 @@
 package ppke.itk.theatre.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import ppke.itk.theatre.controller.dto.DetailedPerformanceDTO;
+import ppke.itk.theatre.controller.dto.PerformanceDTO;
+import ppke.itk.theatre.repository.PerformanceRepository;
+
+import java.util.List;
 
 @RestController
+@RequestMapping("/performances")
 @RequiredArgsConstructor
 public class PerformanceController {
 
+    private final PerformanceRepository performanceRepository;
 
+    @GetMapping
+    public List<PerformanceDTO> getPerformances(@RequestParam(required = false, defaultValue = "100") Integer limit, @RequestParam(required = false, defaultValue = "desc") String sort) {
+        if ( !sort.equalsIgnoreCase("desc") && !sort.equalsIgnoreCase("asc") ) {
+            throw new IllegalArgumentException("Invalid sorting param!!!");
+        }
+        return performanceRepository.findAll().stream()
+            .map(PerformanceDTO::fromPerformance)
+            .toList();
+    }
+
+    @GetMapping("/drama/{title}")
+    public List<PerformanceDTO> getPerformancesByTitle(@PathVariable("title") String title) {
+        return performanceRepository.findByTitle(title).stream()
+            .map(PerformanceDTO::fromPerformance)
+            .toList();
+    }
+
+    @GetMapping("/{id}")
+    public DetailedPerformanceDTO getPerformanceDetails(@PathVariable("id") Integer id) {
+        return DetailedPerformanceDTO.fromPerformance(performanceRepository.findById(id));
+    }
 }

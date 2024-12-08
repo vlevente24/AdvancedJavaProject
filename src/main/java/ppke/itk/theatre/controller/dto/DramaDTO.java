@@ -18,16 +18,6 @@ public class DramaDTO {
     private Integer directorId;
 
     public static DramaDTO fromDrama(Drama drama) {
-        if (drama.getDirector() == null || drama.getDirector().getId() == null) {
-            return new DramaDTO(
-                    drama.getId(),
-                    drama.getTitle(),
-                    drama.getGenre(),
-                    drama.getDuration(),
-                    drama.getImagePath(),
-                    -1
-            );
-        }
         return new DramaDTO(
                 drama.getId(),
                 drama.getTitle(),

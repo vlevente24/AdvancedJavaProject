@@ -9,7 +9,6 @@ package ppke.itk.theatre.domain;
 //import jakarta.persistence.Transient;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,7 +24,7 @@ import java.util.List;
 public class User {
 
     //@Column
-    private Integer email;
+    private String email;
 
     //@Column
     private String name;

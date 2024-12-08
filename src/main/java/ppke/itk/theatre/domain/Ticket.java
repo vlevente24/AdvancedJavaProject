@@ -20,4 +20,6 @@ public class Ticket {
 
     //manytoone
     private Performance performance;
+
+    private String seat;
 }
