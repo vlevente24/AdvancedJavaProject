@@ -20,6 +20,7 @@ public class PerformanceController {
         if ( !sort.equalsIgnoreCase("desc") && !sort.equalsIgnoreCase("asc") ) {
             throw new IllegalArgumentException("Invalid sorting param!!!");
         }
+        //var sortParam = sort.equalsIgnoreCase("asc") ? Sort.by(Sort.Direction.ASC, "rankingPoints") : Sort.by(Sort.Direction.DESC,"rankingPoints");
         return performanceRepository.findAll().stream()
             .map(PerformanceDTO::fromPerformance)
             .toList();
