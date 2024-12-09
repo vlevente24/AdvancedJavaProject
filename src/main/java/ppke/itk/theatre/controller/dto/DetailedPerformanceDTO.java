@@ -36,7 +36,7 @@ public class DetailedPerformanceDTO {
                 p.getLocation(),
                 p.getDrama().getImagePath(),
                 p.getPrice(),
-                p.getDrama().getDetails(),
+                p.getDrama().getDescription(),
                 p.getDrama().getDirector().getName(),
                 List.of()
             );
@@ -50,7 +50,7 @@ public class DetailedPerformanceDTO {
             p.getLocation(),
             p.getDrama().getImagePath(),
             p.getPrice(),
-            p.getDrama().getDetails(),
+            p.getDrama().getDescription(),
             p.getDrama().getDirector().getName(),
             p.getRoles().stream().map(PlayRoleDTO::fromPlayRole).toList()
         );

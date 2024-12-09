@@ -1,13 +1,7 @@
 package ppke.itk.theatre.domain;
 
-//import jakarta.persistence.Entity;
-//import jakarta.persistence.Column;
-//import jakarta.persistence.GeneratedValue;
-//import jakarta.persistence.GenerationType;
-//import jakarta.persistence.Id;
-//import jakarta.persistence.Table;
-//import jakarta.persistence.Transient;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,22 +13,24 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-//@Entity
-//@Table(name = "users")
+@Entity
+@Table(name = "user")
 public class User {
 
-    //@Column
+    @Id
+    @Column(name = "email", nullable = false)
     private String email;
 
-    //@Column
+    @Column
     private String name;
 
-    //@Column
+    @Column
     private String password;
 
-    //@Column
+    @Column
     private UserType permission;
 
     @JsonManagedReference
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private List<Ticket> tickets;
 }
