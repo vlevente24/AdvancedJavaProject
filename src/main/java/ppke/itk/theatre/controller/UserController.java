@@ -15,18 +15,18 @@ public class UserController {
     private final UserRepository userRepository;
     private final CustomUserRepository customUserRepository;
 
-    @GetMapping("/{id}")
-    public UserDTO getUserDataById(@PathVariable("id") Integer id) {
-        return UserDTO.fromUser(userRepository.getUserDataById(id));
+    @GetMapping("/{email}")
+    public UserDTO getUserDataById(@PathVariable("email") String email) {
+        return UserDTO.fromUser(userRepository.findByEmailIgnoreCase(email).get());
     }
 
-    @PostMapping("/{user_id}/ticket")
-    public TicketDTO bookTicket(@PathVariable("user_id") Integer userId, @RequestBody TicketDTO ticket) {
-        return TicketDTO.fromTicket(customUserRepository.bookTicket(userId, ticket));
+    @PostMapping("/{user_email}/ticket")
+    public TicketDTO bookTicket(@PathVariable("user_email") String userEmail, @RequestBody TicketDTO ticket) {
+        return TicketDTO.fromTicket(customUserRepository.bookTicket(userEmail, ticket));
     }
 
-    @DeleteMapping("/{user_id}/ticket/{ticket_id}")
-    public void cancelTicket(@PathVariable("user_id") Integer userId,@PathVariable("ticket_id") Integer ticketId) {
-        customUserRepository.cancelTicket(userId, ticketId);
+    @DeleteMapping("/{user_email}/ticket/{ticket_id}")
+    public void cancelTicket(@PathVariable("user_email") String userEmail, @PathVariable("ticket_id") Integer ticketId) {
+        customUserRepository.cancelTicket(userEmail, ticketId);
     }
 }

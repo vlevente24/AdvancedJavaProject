@@ -30,5 +30,5 @@ public class Ticket {
     private Performance performance;
 
     @Column
-    private String seat;
+    private Integer seat;
 }

@@ -15,6 +15,6 @@ public class ActorController {
 
     @GetMapping("/actors/{id}")
     public Actor getActorById(@PathVariable("id") Integer id) {
-        return actorRepository.getActor(id);
+        return actorRepository.findById(id).get();
     }
 }

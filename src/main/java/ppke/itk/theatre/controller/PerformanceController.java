@@ -26,15 +26,15 @@ public class PerformanceController {
             .toList();
     }
 
-    @GetMapping("/drama/{title}")
-    public List<PerformanceDTO> getPerformancesByTitle(@PathVariable("title") String title) {
-        return performanceRepository.findByTitle(title).stream()
+    @GetMapping("/drama/{drama_id}")
+    public List<PerformanceDTO> getPerformancesById(@PathVariable("drama_id") Integer dramaId) {
+        return performanceRepository.findByDrama_Id(dramaId).stream()
             .map(PerformanceDTO::fromPerformance)
             .toList();
     }
 
     @GetMapping("/{id}")
     public DetailedPerformanceDTO getPerformanceDetails(@PathVariable("id") Integer id) {
-        return DetailedPerformanceDTO.fromPerformance(performanceRepository.findById(id));
+        return DetailedPerformanceDTO.fromPerformance(performanceRepository.findById(id).get());
     }
 }

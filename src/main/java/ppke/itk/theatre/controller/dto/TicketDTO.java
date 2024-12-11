@@ -11,7 +11,7 @@ import ppke.itk.theatre.domain.Ticket;
 public class TicketDTO {
 
     private Integer id;
-    private String seat;
+    private Integer seat;
     private PerformanceDTO performance;
 
     public static TicketDTO fromTicket(Ticket ticket) {

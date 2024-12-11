@@ -36,7 +36,7 @@ public class DramaController {
 
     @GetMapping("/{id}")
     public DramaDTO getDramaById(@PathVariable("id") Integer id) {
-        return DramaDTO.fromDrama(dramaRepository.getDrama(id).get());
+        return DramaDTO.fromDrama(dramaRepository.findById(id).get());
     }
 
     @PostMapping

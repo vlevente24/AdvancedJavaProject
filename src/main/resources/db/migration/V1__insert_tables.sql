@@ -42,7 +42,7 @@ CREATE TABLE "ticket" (
                           "id" integer PRIMARY KEY NOT NULL GENERATED ALWAYS AS IDENTITY,
                           "user_id" varchar(100),
                           "performance_id" integer,
-                          "seat" varchar(50)
+                          "seat" integer
 );
 
 ALTER TABLE "performances" ADD FOREIGN KEY ("drama_id") REFERENCES "dramas" ("id");
