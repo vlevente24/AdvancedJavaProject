@@ -3,7 +3,7 @@ CREATE TABLE "dramas" (
                           "title" varchar(50),
                           "genre" varchar(50),
                           "duration" integer,
-                          "descritpion" text,
+                          "description" text,
                           "image_path" text,
                           "director_id" integer
 );

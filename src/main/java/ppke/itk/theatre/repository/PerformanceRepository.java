@@ -1,5 +1,7 @@
 package ppke.itk.theatre.repository;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -13,6 +15,8 @@ public interface PerformanceRepository extends JpaRepository<Performance, Intege
 
     @Override
     Optional<Performance> findById(Integer integer);
+
+    Page<Performance> findAll(Pageable page);
 
     @Override
     List<Performance> findAll();

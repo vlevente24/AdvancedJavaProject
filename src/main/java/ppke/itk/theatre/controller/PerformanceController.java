@@ -1,6 +1,8 @@
 package ppke.itk.theatre.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 import ppke.itk.theatre.controller.dto.DetailedPerformanceDTO;
 import ppke.itk.theatre.controller.dto.PerformanceDTO;
@@ -20,8 +22,8 @@ public class PerformanceController {
         if ( !sort.equalsIgnoreCase("desc") && !sort.equalsIgnoreCase("asc") ) {
             throw new IllegalArgumentException("Invalid sorting param!!!");
         }
-        //var sortParam = sort.equalsIgnoreCase("asc") ? Sort.by(Sort.Direction.ASC, "rankingPoints") : Sort.by(Sort.Direction.DESC,"rankingPoints");
-        return performanceRepository.findAll().stream()
+        var sortParam = sort.equalsIgnoreCase("asc") ? Sort.by(Sort.Direction.ASC, "rankingPoints") : Sort.by(Sort.Direction.DESC,"rankingPoints");
+        return performanceRepository.findAll(PageRequest.of(0, limit, sortParam)).stream()
             .map(PerformanceDTO::fromPerformance)
             .toList();
     }

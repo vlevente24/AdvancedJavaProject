@@ -15,6 +15,7 @@ public class DramaDTO {
     private String genre;
     private Integer duration;
     private String imagePath;
+    private String directorName;
     private Integer directorId;
 
     public static DramaDTO fromDrama(Drama drama) {
@@ -24,6 +25,7 @@ public class DramaDTO {
                 drama.getGenre(),
                 drama.getDuration(),
                 drama.getImagePath(),
+                drama.getDirector().getName(),
                 drama.getDirector().getId()
         );
     }
