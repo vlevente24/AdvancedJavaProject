@@ -30,10 +30,10 @@ CREATE TABLE "role" (
                         "role_name" text
 );
 
-CREATE TABLE "user" (
+CREATE TABLE "myusers" (
                         "email" varchar(100) PRIMARY KEY NOT NULL,
                         "name" varchar(50),
-                        "password" varchar(50),
+                        "password" varchar(300),
                         "permission" varchar(15),
                         CONSTRAINT email_unique UNIQUE (email)
 );
@@ -53,6 +53,6 @@ ALTER TABLE "role" ADD FOREIGN KEY ("performance_id") REFERENCES "performances" 
 
 ALTER TABLE "dramas" ADD FOREIGN KEY ("director_id") REFERENCES "actor" ("id");
 
-ALTER TABLE "ticket" ADD FOREIGN KEY ("user_id") REFERENCES "user" ("email");
+ALTER TABLE "ticket" ADD FOREIGN KEY ("user_id") REFERENCES "myusers" ("email");
 
 ALTER TABLE "ticket" ADD FOREIGN KEY ("performance_id") REFERENCES "performances" ("id");

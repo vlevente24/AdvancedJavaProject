@@ -18,11 +18,11 @@ public class PerformanceController {
     private final PerformanceRepository performanceRepository;
 
     @GetMapping
-    public List<PerformanceDTO> getPerformances(@RequestParam(required = false, defaultValue = "100") Integer limit, @RequestParam(required = false, defaultValue = "desc") String sort) {
+    public List<PerformanceDTO> getPerformances(@RequestParam(required = false, defaultValue = "100") Integer limit, @RequestParam(required = false, defaultValue = "asc") String sort) {
         if ( !sort.equalsIgnoreCase("desc") && !sort.equalsIgnoreCase("asc") ) {
             throw new IllegalArgumentException("Invalid sorting param!!!");
         }
-        var sortParam = sort.equalsIgnoreCase("asc") ? Sort.by(Sort.Direction.ASC, "rankingPoints") : Sort.by(Sort.Direction.DESC,"rankingPoints");
+        var sortParam = sort.equalsIgnoreCase("asc") ? Sort.by(Sort.Direction.ASC, "date") : Sort.by(Sort.Direction.DESC,"date");
         return performanceRepository.findAll(PageRequest.of(0, limit, sortParam)).stream()
             .map(PerformanceDTO::fromPerformance)
             .toList();

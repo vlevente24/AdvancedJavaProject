@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "user")
+@Table(name = "myusers")
 public class User {
 
     @Id
@@ -28,7 +28,7 @@ public class User {
     private String password;
 
     @Column
-    private UserType permission;
+    private String permission;
 
     @JsonManagedReference
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
